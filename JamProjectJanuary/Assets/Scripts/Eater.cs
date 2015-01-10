@@ -7,7 +7,7 @@ public class Eater : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponentInParent<PlayerControl> ();
+		playerControl = GetComponentInParent<PlayerControl> ();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,9 @@ public class Eater : MonoBehaviour {
 		Debug.Log ("Eater collider");
 		if (other.gameObject.tag == ("Astronaut")) 
 		{
+			Vector3 spawnPosition = other.gameObject.transform.localPosition;
 			Object.Destroy(other.gameObject);
+			playerControl.spawnChild(spawnPosition);	
 		}
 	}
 }

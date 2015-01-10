@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
-
+	
 	[SerializeField] private AnimationCurve rotationAcceleration;
 	[SerializeField] private Vector3 eulerAngleVelocity = new Vector3(0, 100, 0);
 
@@ -32,5 +32,11 @@ public class PlayerControl : MonoBehaviour {
 
 		Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime * horizontalMovement * rotationAcceleration.Evaluate(time));
 		rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
+	}
+
+	public void spawnChild(Vector3 spawnPosition)
+	{
+		Debug.Log("will spawn stuff from: " + this.name);
+		GameObject spawningPenguin = (GameObject)GameObject.Instantiate(this, spawnPosition, this.transform.localRotation);
 	}
 }
