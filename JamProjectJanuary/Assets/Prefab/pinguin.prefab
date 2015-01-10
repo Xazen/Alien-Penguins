@@ -11,7 +11,10 @@ GameObject:
   - 95: {fileID: 9582410}
   - 54: {fileID: 5482410}
   - 114: {fileID: 11482408}
-  - 136: {fileID: 13682410}
+  - 33: {fileID: 3385188}
+  - 23: {fileID: 2385188}
+  - 75: {fileID: 7585188}
+  - 136: {fileID: 13685188}
   m_Layer: 0
   m_Name: pinguin
   m_TagString: Untagged
@@ -60,8 +63,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182406}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.48000002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -78.1999969, y: 35.9000015, z: 74.5}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 482408}
   - {fileID: 482410}
@@ -103,7 +106,27 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 365940a2d81e5dc4786c5f68228618ea, type: 2}
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2385188
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182406}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: da6c7864645a24280b04219db1915a9a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -118,6 +141,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182408}
   m_Mesh: {fileID: 4300000, guid: ce8be1a388e911c4ca3e1c053e011a90, type: 3}
+--- !u!33 &3385188
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182406}
+  m_Mesh: {fileID: 4300000, guid: 5acab166368544e1fac1cf3658643419, type: 3}
 --- !u!54 &5482410
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -125,7 +155,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182406}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -145,6 +175,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!75 &7585188
+ConstantForce:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182406}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -1000, z: 1000}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!95 &9582410
 Animator:
   serializedVersion: 3
@@ -153,7 +194,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182406}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ce8be1a388e911c4ca3e1c053e011a90, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 5acab166368544e1fac1cf3658643419, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -198,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4d27c6ac19ced428da1cd7688c34ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &13682410
+--- !u!136 &13685188
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -207,10 +248,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .699999988
-  m_Height: 2.95000005
-  m_Direction: 2
-  m_Center: {x: .00999999978, y: .589999974, z: -.360000014}
+  m_Radius: 1.82646108
+  m_Height: 1.36741602
+  m_Direction: 1
+  m_Center: {x: 0, y: .657267034, z: .0959150195}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -102,9 +102,32 @@ public class PositionTracker : MonoBehaviour {
 			Quaternion direction = leapHand.Fingers[1].Bone(Bone.BoneType.TYPE_DISTAL).Basis.Rotation();		
 			Quaternion directionCorrected = direction * Quaternion.Euler(leapSmoothness,leapSmoothness,leapSmoothness); 
 			directionCorrected.y = 0f;
-			if(checkRotationConstraints(directionCorrected)){
-				platformTransform.rotation = directionCorrected;
+
+
+			float buffer = 0.15f;
+//			if(checkRotationConstraints(directionCorrected)){
+				Quaternion tmp = platformTransform.rotation;
+
+			Debug.Log ("X " + directionCorrected.x);
+			if(directionCorrected.x>buffer){
+				tmp.x += Mathf.Abs(leapSmoothness * directionCorrected.x);
+			}else if(directionCorrected.x<-buffer){
+				tmp.x -= Mathf.Abs(leapSmoothness* directionCorrected.x);
+			}else{
+				tmp.x = platformTransform.rotation.x;
 			}
+
+			if(directionCorrected.z>buffer){
+				tmp.z += Mathf.Abs(leapSmoothness * directionCorrected.z);
+			}else if(directionCorrected.z<-buffer){
+				tmp.z -= Mathf.Abs(leapSmoothness * directionCorrected.z);
+			}else{
+				tmp.z = platformTransform.rotation.z;
+			}
+
+			platformTransform.rotation = tmp;
+			directionCorrected.x = 0;
+			directionCorrected.z = 0;
 			
 		}
 	}
