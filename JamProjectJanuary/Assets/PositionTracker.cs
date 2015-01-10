@@ -110,17 +110,17 @@ public class PositionTracker : MonoBehaviour {
 
 			Debug.Log ("X " + directionCorrected.x);
 			if(directionCorrected.x>buffer){
-				tmp.x += Mathf.Abs(leapSmoothness * directionCorrected.x);
+				tmp.x -= Mathf.Abs(leapSmoothness * directionCorrected.x);
 			}else if(directionCorrected.x<-buffer){
-				tmp.x -= Mathf.Abs(leapSmoothness* directionCorrected.x);
+				tmp.x += Mathf.Abs(leapSmoothness* directionCorrected.x);
 			}else{
 				tmp.x = platformTransform.rotation.x;
 			}
 
 			if(directionCorrected.z>buffer){
-				tmp.z += Mathf.Abs(leapSmoothness * directionCorrected.z);
-			}else if(directionCorrected.z<-buffer){
 				tmp.z -= Mathf.Abs(leapSmoothness * directionCorrected.z);
+			}else if(directionCorrected.z<-buffer){
+				tmp.z += Mathf.Abs(leapSmoothness * directionCorrected.z);
 			}else{
 				tmp.z = platformTransform.rotation.z;
 			}
