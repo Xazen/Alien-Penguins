@@ -77,22 +77,25 @@ public class PositionTracker : MonoBehaviour {
 		PointableList pointables = frame.Pointables;
 		FingerList fingers = frame.Fingers;
 		ToolList tools = frame.Tools;
+
+		Vector3 nullVector = new Vector3 (0, 0, 0);
 		
 		if (leapHand == null){
-			platformTransform.localPosition = lastPosition;
+			platformTransform.localPosition = nullVector;
+			platformTransform.rotation = Quaternion.identity;
 		} 
 		else 
 		{
 			Quaternion direction = leapHand.Fingers[1].Bone(Bone.BoneType.TYPE_DISTAL).Basis.Rotation();		
-			Quaternion directionCorrected = direction * Quaternion.Euler(35, 0, 0); 
+			Quaternion directionCorrected = direction * Quaternion.Euler(0,0,0); 
 			
-			platformTransform.localPosition = platformController.transform.TransformPoint(leapHand.PalmPosition.ToUnityScaled());
+//			platformTransform.localPosition = platformController.transform.TransformPoint(leapHand.PalmPosition.ToUnityScaled());
 			
-			directionCorrected.x = 0f;
+//			directionCorrected.x = 0f;
 			directionCorrected.y = 0f;
 			
 			platformTransform.rotation = directionCorrected;
-			lastPosition = platformTransform.localPosition;
+//			lastPosition = platformTransform.localPosition;
 			
 		}
 	}
