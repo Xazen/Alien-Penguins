@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
-
+	
 	[SerializeField] private AnimationCurve rotationAcceleration;
 	[SerializeField] private Vector3 eulerAngleVelocity = new Vector3(0, 100, 0);
+	[SerializeField] AudioClip dieSound;
 
 	private float time = 0;
 	private Rigidbody playerRigidbody;
@@ -32,5 +33,27 @@ public class PlayerControl : MonoBehaviour {
 
 		Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime * horizontalMovement * rotationAcceleration.Evaluate(time));
 		rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
+	}
+
+	public void spawnChild(Vector3 spawnPosition)
+	{
+		Debug.Log("will spawn stuff from: " + this.name);
+		GameObject spawningPenguin = (GameObject)GameObject.Instantiate(this, spawnPosition, this.transform.localRotation);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == ("Astronaut")) 
+		{
+			audio.PlayOneShot(dieSound);
+			
+			StartCoroutine(killThePenguin());
+		}
+	}
+
+	IEnumerator killThePenguin ()
+	{
+		yield return new WaitForSeconds (0.75f);
+		Object.Destroy(gameObject);	
 	}
 }
