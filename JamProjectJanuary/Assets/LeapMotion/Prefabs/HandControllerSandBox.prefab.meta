@@ -1,4 +1,8 @@
 fileFormatVersion: 2
-guid: 6a6b37982bfee4a3ab2ca1abce6ecec2
+guid: 47fe4031ae5de475bb9d9a281db1a528
+labels:
+- Leap
+- Motion
+- Controller
 NativeFormatImporter:
   userData: 

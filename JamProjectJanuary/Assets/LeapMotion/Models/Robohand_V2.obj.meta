@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f6c3df1b36a747af98cb2b326f4e800
+guid: 887fc1db99261465da43d480dcf41e65
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -97,7 +97,7 @@ ModelImporter:
     4300034: Robhands_Palm_Light
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -133,7 +133,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a0e2f51b04ce4c3db408e87bf10ed5b
+guid: 1591f8eda65a14357a4de2c3e3a57b99
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -382,7 +382,7 @@ ModelImporter:
     4300148: pPipe18
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -418,7 +418,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

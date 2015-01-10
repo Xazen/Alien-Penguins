@@ -1,4 +1,7 @@
 fileFormatVersion: 2
-guid: 7b140a2e7b0144fc087407e7222b6cc4
+guid: 96394fcd0cc244045acb99d518ef6c93
+labels:
+- Image
+- Passthrough
 NativeFormatImporter:
   userData: 

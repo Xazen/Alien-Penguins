@@ -1,4 +1,7 @@
 fileFormatVersion: 2
-guid: 9530fe67fb690481b8b557e7232adb82
+guid: 95a8b1228f1034c8f9070761f4f13b21
+labels:
+- Hand
+- Skeletal
 NativeFormatImporter:
   userData: 

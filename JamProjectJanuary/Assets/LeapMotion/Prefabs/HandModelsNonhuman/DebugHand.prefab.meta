@@ -1,4 +1,7 @@
 fileFormatVersion: 2
-guid: 61935b89b41804b378059cc8d8f2526f
+guid: e98e2c2cadb464c9892b9e4d60d61f6f
+labels:
+- Debug
+- Hand
 NativeFormatImporter:
   userData: 

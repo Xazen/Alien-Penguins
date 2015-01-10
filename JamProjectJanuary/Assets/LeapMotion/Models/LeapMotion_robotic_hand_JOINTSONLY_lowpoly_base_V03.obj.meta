@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f06af436d50a540e5909c78f62709d8f
+guid: 77be2d34588f94f148029da0fc06afa0
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -272,7 +272,7 @@ ModelImporter:
     4300104: pPipe9
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -304,11 +304,11 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 99
     splitTangentsAcrossUV: 1
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

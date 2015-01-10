@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c7baedcfd02d48858af866e82b0c004
+guid: 9efb8154e3e684e16bab1168b5cfa868
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -12,7 +12,7 @@ ModelImporter:
     4300000: torus
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -48,7 +48,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
