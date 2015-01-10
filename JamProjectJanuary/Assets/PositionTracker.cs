@@ -3,10 +3,7 @@ using System.Collections;
 using Leap;
 
 public class PositionTracker : MonoBehaviour {
-	
-	//	GameObject shipController;
-	
-	
+
 	Vector position;
 	Hand hand;
 	
@@ -20,15 +17,31 @@ public class PositionTracker : MonoBehaviour {
 	
 	Vector3 lastPosition;
 	
-	float miceMoveY = 0.0f;
-	
+//	float miceMoveY = 0.0f;
+//	
+//	[SerializeField]
+//	float sensitivityY = 0.005f;
+//	
+//	float miceMoveX = 0.0f;
+//	
+//	[SerializeField]
+//	float sensitivityX = 0.005f;
 	[SerializeField]
-	float sensitivityY = 0.005f;
-	
-	float miceMoveX = 0.0f;
-	
+	float leapSmoothness = 0.2f;
+
+
 	[SerializeField]
-	float sensitivityX = 0.005f;
+	float maximumXRotation = 0.2f;
+
+	[SerializeField]
+	float minimumXRotation = 0.2f;
+
+	[SerializeField]
+	float maximumZRotation = 0.2f;
+
+	[SerializeField]
+	float minimumZRotation = 0.2f;
+
 	
 	static Controller controller = new Controller();
 	
@@ -87,16 +100,31 @@ public class PositionTracker : MonoBehaviour {
 		else 
 		{
 			Quaternion direction = leapHand.Fingers[1].Bone(Bone.BoneType.TYPE_DISTAL).Basis.Rotation();		
-			Quaternion directionCorrected = direction * Quaternion.Euler(0,0,0); 
-			
-//			platformTransform.localPosition = platformController.transform.TransformPoint(leapHand.PalmPosition.ToUnityScaled());
-			
-//			directionCorrected.x = 0f;
+			Quaternion directionCorrected = direction * Quaternion.Euler(leapSmoothness,leapSmoothness,leapSmoothness); 
 			directionCorrected.y = 0f;
-			
-			platformTransform.rotation = directionCorrected;
-//			lastPosition = platformTransform.localPosition;
+			if(checkRotationConstraints(directionCorrected)){
+				platformTransform.rotation = directionCorrected;
+			}
 			
 		}
+	}
+
+	bool checkRotationConstraints (Quaternion directionCorrected)
+	{
+
+		if (directionCorrected.x > maximumXRotation) {
+			return false;
+		}
+		if (directionCorrected.x < minimumXRotation) {
+			return false;
+		}
+		if (directionCorrected.z > maximumZRotation) {
+			return false;
+		}
+		if (directionCorrected.z < minimumZRotation) {
+			return false;
+		}
+
+		return true;
 	}
 }
