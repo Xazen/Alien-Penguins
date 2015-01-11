@@ -6,17 +6,17 @@ public class PlayerControl : MonoBehaviour {
 	[SerializeField] private AnimationCurve rotationAcceleration;
 	[SerializeField] private Vector3 eulerAngleVelocity = new Vector3(0, 100, 0);
 	[SerializeField] AudioClip dieSound;
-
+	
 	private float time = 0;
 	private Rigidbody playerRigidbody;
-
+	
 	void Awake () {
 		if (rotationAcceleration.keys.Length < 1) 
 		{
 			Debug.LogWarning("Transition Path not configured");
 		}
 	}
-
+	
 	// Use this for initialization
 	void Start () {
 		playerRigidbody = GetComponent<Rigidbody> ();
@@ -30,30 +30,31 @@ public class PlayerControl : MonoBehaviour {
 		{
 			time = 0;
 		}
-
+		
 		Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime * horizontalMovement * rotationAcceleration.Evaluate(time));
 		rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
 	}
-
+	
 	public void spawnChild(Vector3 spawnPosition)
 	{
 		Debug.Log("will spawn stuff from: " + this.name);
-		GameObject spawningPenguin = (GameObject)GameObject.Instantiate(this, spawnPosition, this.transform.localRotation);
+		//GameObject spawningPenguin = (GameObject)GameObject.Instantiate(this, spawnPosition, this.transform.localRotation);
+		//Instantiate(this, spawnPosition, this.transform.localRotation);
 	}
-
+	
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == ("Astronaut")) 
+		if (other.gameObject.tag == ("Human")) 
 		{
 			audio.PlayOneShot(dieSound);
 			
 			StartCoroutine(killThePenguin());
 		}
 	}
-
+	
 	IEnumerator killThePenguin ()
 	{
 		yield return new WaitForSeconds (0.75f);
-		Object.Destroy(gameObject);	
+		//Object.Destroy(gameObject);	
 	}
 }

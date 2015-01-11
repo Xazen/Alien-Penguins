@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Eater : MonoBehaviour {
-
+	
 	private PlayerControl playerControl;
-
+	
 	// Use this for initialization
 	void Start () {
 		playerControl = GetComponentInParent<PlayerControl> ();
@@ -12,14 +12,15 @@ public class Eater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
-
+	
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log ("Eater collider");
-		if (other.gameObject.tag == ("Astronaut")) 
+		
+		if (other.gameObject.tag == ("Human")) 
 		{
+			Debug.Log ("You shall die!!!!: " + other.gameObject.tag);
 			Vector3 spawnPosition = other.gameObject.transform.localPosition;
 			Object.Destroy(other.gameObject);
 			playerControl.spawnChild(spawnPosition);	
